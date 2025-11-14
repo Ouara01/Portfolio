@@ -14,7 +14,8 @@
 }
 
 /* Reset + base */
-* { box-sizing: border-box; }
+* { box-sizing: border-box;
+ }
 
 html, body {
   height: 100%;
@@ -61,6 +62,9 @@ header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.4s cubic-bezier(0.2, 0.9, 0.2, 1),
               border-color 0.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+  height: 10%;
+  display: flex;
+  align-items: center;;
 }
 
 header .container {
@@ -74,7 +78,7 @@ header .container {
 }
 
 header h1 {
-  margin: 0;
+  margin: 10;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -82,13 +86,20 @@ header h1 {
   flex-shrink: 0;
 }
 
+nav {
+  display: flex;  
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
 nav ul {
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  margin: 0;
+  margin: 20px;
   padding: 0;
   list-style: none;
+  justify-content: center;
 }
 
 /* Nav links - UNIQUE DECLARATION */
@@ -104,8 +115,8 @@ nav a:hover {
 }
 
 .dark-mode header {
-  background: rgba(0, 0, 0, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.75);
+  
 }
 
 /* Main */
@@ -210,14 +221,73 @@ p {
   line-height: 1.6;
 }
 
-/* Contact */
-#contact {
-  max-width: 860px;
+/* Skills */
+#skills ul{
+  display: flex;
+  overflow-x: auto;
+  
 }
 
-#contact p {
-  font-size: 1rem;
+
+#skills h2 {
+  margin-bottom: 1.5rem;
 }
+
+.skills-list {
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skills-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-1);
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+              background 0.4s cubic-bezier(0.2, 0.9, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+  cursor: pointer;
+  flex: 0 0 auto;
+  width: 200px;
+}
+
+.skills-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-2);
+}
+
+.skills-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.skills-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Contact */
+#contact h2 {
+  margin-bottom: 1.5rem;
+}
+#contact ul {
+  list-style: none;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
 
 /* Footer */
 footer {
@@ -248,7 +318,7 @@ body.dark-mode {
 
 .dark-mode header {
   background: rgba(0, 0, 0, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  
 }
 
 .dark-mode .project-card,

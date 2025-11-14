@@ -70,7 +70,7 @@ darkModeToggle.innerHTML = '🌙';
 darkModeToggle.style.cssText = `
   position: fixed; top: 1rem; right: 1rem; z-index: 70;
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--surface); color: var(--text); border: 1px solid rgba(12,15,20,0.08);
+  background: var(--surface); color: var(--text); border: none;
   cursor: pointer; box-shadow: var(--shadow-1);
   transition: transform 0.2s ease, background 0.2s ease;
   font-size: 1.2rem;
@@ -87,7 +87,7 @@ const darkModeCss = `
   }
   body.dark-mode { background: linear-gradient(180deg, #0a0e18 0%, #0f1724 100%); }
   .dark-mode header { background: rgba(26,35,50,0.7); border-bottom-color: rgba(255,255,255,0.04); }
-  .dark-mode .card, .dark-mode #about .content, .dark-mode .project-card {
+  .dark-mode .card, .dark-mode #about .content, .dark-mode .project-card, .dark-mode .skills-card {
     background: linear-gradient(180deg, #1a2332, #141e2e);
     border-color: rgba(255,255,255,0.04);
   }
@@ -121,7 +121,7 @@ const animationObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.project-card, #about .content').forEach((el, idx) => {
+document.querySelectorAll('.project-card, #about .content, .skills-card').forEach((el, idx) => {
   el.style.animation = 'none';
   el.style.opacity = '0';
   setTimeout(() => animationObserver.observe(el), idx * 80);
@@ -238,7 +238,7 @@ window.addEventListener('resize', createMobileMenu);
 // ============================================================
 // 7. PARALLAX EFFECT ON SCROLL (subtle)
 // ============================================================
-const parallaxElements = document.querySelectorAll('.project-card');
+const parallaxElements = document.querySelectorAll('.project-card, .skills-card');
 window.addEventListener('scroll', () => {
   parallaxElements.forEach(el => {
     const rect = el.getBoundingClientRect();
