@@ -6,87 +6,83 @@
     <title>Florian ROYER - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        #contact a[href^="mailto:"] {
-            color: var(--accent);
-            font-weight: 700;
-        }
-    </style>
 </head>
 <body>
     <header>
-    <nav id="navbar"> 
-        <ul>
-            <li><a href="#about">Profil</a></li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-<main>
-    <section id="about">
-        <div class="content">
+        <nav id="navbar"> 
+            <ul>
+                <li><a href="#about">Profil</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="about" id="about">
             <h2>Bienvenue sur mon Portfolio</h2>
-            <p>Je suis Florian ROYER, Développeur passionné par le numérique, je crée des projets modernes et intuitifs, avec un fort intérêt pour le web et les jeux vidéo.</p>
+            <p>Je suis Florian ROYER, Développeur passionné par le numérique, créant des projets modernes et intuitifs, avec un fort intérêt pour le web, le développement de jeux vidéo et les technologies modernes telles que React, TypeScript et Next.js.</p>
         </div>
-    </section>
 
-    <section id="projects">
-        <h2>Mes Projets</h2>
-        <ul class="project-list">
-            <li class="project-card">
-                <h3>Extension Manga</h3>
-                <p>API permettant de récupérer et lire des chapitres de manga.</p>
-            </li>
-            <li class="project-card">
-                <h3>Tetoris</h3>
-                <p>Copie de Tetris en utilisant les voix de différents Vocaloid pour chaques couleurs.</p>
-            </li>
-            <li class="project-card">
-                <h3>Jeu du Morpion</h3>
-                <p>Jeu classique du morpion avec une interface simple et intuitive.</p>
-            </li>
-        </ul>
-    </section>
-    <section id="skills">
-        <h2>Compétences techniques</h2>
-        <ul class="skills-list">
-            <li class=" skills-card">
-                <h3>Développement Web</h3>
-                <p>Création de sites web responsives et interactifs.</p>
-            </li>
-            <li class="skills-card">
-                <h3>Languages Maitrisés</h3>
-                <p>- HTML5</p>
-                <p>- CSS3</p>
-                <p>- JavaScript</p>
-            </li>
-            <li class="skills-card">
-                <h3>Python</h3>
-                <p>Programmation en Python pour divers projets.</p>
-            </li>
-            <li class="skills-card">
-                <h3>Développement de jeux vidéo</h3>
-                <p>Conception et développement de jeux vidéo captivants.</p>
-            </li>
-        </ul>
-    </section>
+        <div class="project" id="project">
+            <h2>Mes Projets</h2>
+            <ul class="project-list">
+                <li class="project-card">
+                    <h3>Shiori-Sama - Plateforme de Streaming d'Anime</h3>
+                    <p>Site web fullstack, utilisant Next.js 16, React 19, TypeScript et Zustand.</p>
+                    <p>Fonctionnalités : récupération d'animes via AniList GraphQL, gestion d'état avec Zustand, interface moderne et responsive. Projet en cours de développement.</p>
+                    <span>Statut : En cours<span/>
+                </li>
+                <li class="project-card">
+                    <h3>Tetoris</h3>
+                    <p>Copie de Tetris utilisant les voix de différents Vocaloid pour chaque couleur.</p>
+                    <span>Statut : À venir<span/>
+                </li>
+                <li class="project-card">
+                    <h3>Jeu du Morpion</h3>
+                    <p>Jeu classique du morpion avec une interface simple et intuitive.</p>
+                    <span>Statut : À venir<span/>
+                </li>
+            </ul>
+        </div>
 
-    <section id="contact">
-        <h2>Contactez-moi</h2>
-        <ul class="Contactez-moi">
-            <li class=" project-card">
-                <h3>Email</h3>
-                <p>Vous pouvez me contacter à l'adresse suivante : <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a></p>
-            </li>
-        </ul>
-        </p>
-    </section>
-</main>
-<footer>
-    <p>&copy; 2025 Florian ROYER &mdash; Tous droits réservés.</p>
-</footer>
-<script src="script.js"></script>
+        <div class="skills" id="skills">
+            <h2>Compétences techniques</h2>
+            <ul class="skills-list">
+                <li class="skills-card">
+                    <h3>Développement Web</h3>
+                    <p>Création de sites web responsives et interactifs.</p>
+                </li>
+                <li class="skills-card">
+                    <h3>Langages maîtrisés</h3>
+                    <p>HTML5 | CSS3 | JavaScript | TypeScript | Python</p>
+                </li>
+                <li class="skills-card">
+                    <h3>Frameworks / Bibliothèques</h3>
+                    <p>React, Next.js, Tailwind CSS, Zustand</p>
+                </li>
+                <li class="skills-card">
+                    <h3>Développement de jeux vidéo</h3>
+                    <p>Conception et développement de jeux captivants.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact" id="section">
+            <h2>Contactez-moi</h2>
+            <ul class="contact-list">
+                <li class="contact-card">
+                    <h3>Email</h3>
+                    <p>Vous pouvez me contacter à : <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a></p>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p id="copyright"><strong>&copy; 2025 Florian ROYER<strong/><br>&mdash; Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
