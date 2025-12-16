@@ -22,7 +22,7 @@ html, body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Quicksand", "Segoe UI", "Helvetica Neue", sans-serif;
+  font-family: 'Quicksand', "Segoe UI", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
