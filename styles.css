@@ -10,8 +10,13 @@
 
   --radius: 20px;
 
+  /* Large shadows (Depth style) */
   --shadow-sm: 0 10px 30px rgba(0,0,0,0.08);
   --shadow-lg: 0 30px 80px rgba(0,0,0,0.18);
+
+  /* Glass effect */
+  --glass-bg: rgba(255,255,255,0.15);
+  --glass-blur: blur(15px);
 }
 
 .dark {
@@ -19,6 +24,8 @@
   --surface: #141a33;
   --text: #e5e7eb;
   --muted: #9ca3af;
+  --accent: #2563eb;
+  --glass-bg: rgba(26,35,50,0.4);
 }
 
 /* =========================
@@ -32,6 +39,13 @@
   padding: 0;
 }
 
+ul {
+  list-style: none;
+}
+
+/* =========================
+   BASE
+========================= */
 body {
   font-family: 'Quicksand', sans-serif;
   background: var(--bg);
@@ -40,12 +54,18 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-a { color: var(--accent); text-decoration: none; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
 
-span { font-weight: 700; }
+span {
+  font-weight: 700;
+}
 
 /* =========================
-   LAYOUT
+   CONTAINER & SECTIONS
 ========================= */
 .container {
   max-width: 1100px;
@@ -58,36 +78,45 @@ span { font-weight: 700; }
 }
 
 /* =========================
-   HEADER
+   HEADER / NAV
 ========================= */
 .header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
   background: var(--bg);
   box-shadow: var(--shadow-sm);
-  border-radius: 0 0 var(--radius) var(--radius);
+  z-index: 10;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
 
 .nav {
   display: flex;
+  align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 1100px;
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
 .nav-links {
   display: flex;
   gap: 1.5rem;
-  list-style: none;
   align-items: center;
 }
 
-.nav a { font-weight: 600; color: var(--text); }
-.github-icon { width: 28px; height: 28px; }
+.nav a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.github-icon {
+  width: 28px;
+  height: 28px;
+}
 
 /* =========================
    CARDS
@@ -112,8 +141,6 @@ span { font-weight: 700; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
-  list-style: none; /* remove bullets */
-  padding-left: 0;
 }
 
 /* =========================
@@ -126,41 +153,65 @@ span { font-weight: 700; }
 }
 
 /* =========================
-   FLOATING MENU & TOGGLE
+   FLOATING MENU (Liquid Glass)
 ========================= */
-.floating-menu, .floating-toggle {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1rem 1.5rem;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.15);
-  box-shadow: var(--shadow-lg);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
 .floating-menu {
-  bottom: 1rem;
+  position: fixed;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 0.75rem 1.5rem;
   border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow-lg);
+  z-index: 20;
 }
 
-.floating-toggle {
-  bottom: 1rem;
+.floating-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.floating-menu a:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+
+/* =========================
+   DARK MODE TOGGLE
+========================= */
+.theme-toggle {
+  position: fixed;
+  bottom: 0;
   right: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 0.5rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: var(--shadow-lg);
   border-radius: var(--radius) 0 var(--radius) 0;
   cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.menu-icon {
+.theme-toggle svg {
   width: 32px;
   height: 32px;
-  transition: transform 0.2s ease;
 }
 
-.menu-icon:hover {
+.theme-toggle:hover {
   transform: translateY(-3px);
 }
 
@@ -168,8 +219,26 @@ span { font-weight: 700; }
    RESPONSIVE
 ========================= */
 @media (max-width: 640px) {
-  .container { padding: 1.5rem 1rem; }
-  .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  .grid { grid-template-columns: 1fr; }
-  .floating-menu, .floating-toggle { padding: 0.75rem 1rem; gap: 1rem; }
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .floating-menu {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .floating-menu a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .theme-toggle {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
 }
