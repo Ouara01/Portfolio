@@ -1,5 +1,5 @@
 /* =========================
-   VARIABLES & THEME
+   VARIABLES
 ========================= */
 :root {
   --bg: #f4f5f7;
@@ -7,7 +7,9 @@
   --text: #111827;
   --muted: #6b7280;
   --accent: #2563eb;
+
   --radius: 20px;
+
   --shadow-sm: 0 10px 30px rgba(0,0,0,0.08);
   --shadow-lg: 0 30px 80px rgba(0,0,0,0.18);
 }
@@ -28,12 +30,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  list-style: none; /* remove bullet points */
 }
 
-/* =========================
-   BASE
-========================= */
 body {
   font-family: 'Quicksand', sans-serif;
   background: var(--bg);
@@ -42,17 +40,12 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
+a { color: var(--accent); text-decoration: none; }
 
-span {
-  font-weight: 700;
-}
+span { font-weight: 700; }
 
 /* =========================
-   CONTAINER & LAYOUT
+   LAYOUT
 ========================= */
 .container {
   max-width: 1100px;
@@ -65,36 +58,36 @@ span {
 }
 
 /* =========================
-   HEADER / NAV
+   HEADER
 ========================= */
 .header {
   position: sticky;
   top: 0;
+  z-index: 10;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
   background: var(--bg);
   box-shadow: var(--shadow-sm);
-  z-index: 10;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .nav-links {
   display: flex;
   gap: 1.5rem;
+  list-style: none;
+  align-items: center;
 }
 
-.nav a {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.github-icon {
-  width: 28px;
-  height: 28px;
-}
+.nav a { font-weight: 600; color: var(--text); }
+.github-icon { width: 28px; height: 28px; }
 
 /* =========================
    CARDS
@@ -119,6 +112,8 @@ span {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
+  list-style: none; /* remove bullets */
+  padding-left: 0;
 }
 
 /* =========================
@@ -131,70 +126,50 @@ span {
 }
 
 /* =========================
-   THEME TOGGLE
+   FLOATING MENU & TOGGLE
 ========================= */
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text);
+.floating-menu, .floating-toggle {
+  position: fixed;
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.15);
+  box-shadow: var(--shadow-lg);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.theme-toggle:hover {
-  transform: rotate(20deg);
-}
-
-.theme-toggle svg {
-  width: 32px;
-  height: 32px;
-}
-
-/* =========================
-   FLOATING MENU (LIQUID GLASS)
-========================= */
 .floating-menu {
-  position: fixed;
-  bottom: 2rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 2rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 40px;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.1);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  z-index: 999;
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
-.floating-menu a {
-  font-size: 1.5rem;
-  color: var(--text);
-  transition: transform 0.3s ease, color 0.3s ease;
+.floating-toggle {
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: var(--radius) 0 var(--radius) 0;
+  cursor: pointer;
 }
 
-.floating-menu a:hover {
-  transform: scale(1.2);
-  color: var(--accent);
+.menu-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease;
+}
+
+.menu-icon:hover {
+  transform: translateY(-3px);
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 640px) {
-  .container {
-    padding: 1.5rem 1rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .floating-menu {
-    gap: 1rem;
-    padding: 0.5rem 1rem;
-  }
+  .container { padding: 1.5rem 1rem; }
+  .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .grid { grid-template-columns: 1fr; }
+  .floating-menu, .floating-toggle { padding: 0.75rem 1rem; gap: 1rem; }
 }
