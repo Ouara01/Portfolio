@@ -1,26 +1,18 @@
+// Dark / Light mode toggle
 const toggle = document.getElementById('themeToggle');
 const root = document.documentElement;
 
-/* Load saved theme */
-if (localStorage.getItem('theme') === 'dark') {
-  root.classList.add('dark');
-}
+if (localStorage.getItem('theme') === 'dark') root.classList.add('dark');
 
-/* Toggle theme */
 toggle.addEventListener('click', () => {
   root.classList.toggle('dark');
-  localStorage.setItem(
-    'theme',
-    root.classList.contains('dark') ? 'dark' : 'light'
-  );
+  localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
 });
 
-/* Smooth scroll */
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    document
-      .querySelector(link.getAttribute('href'))
-      .scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
   });
 });
