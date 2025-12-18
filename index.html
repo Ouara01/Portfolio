@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Florian Royer — Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Florian Royer — Portfolio</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 
-  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-<header class="header">
-  <nav class="nav container">
+
+<header class="header container">
+  <nav class="nav">
     <ul class="nav-links">
       <li><a href="#about">Profil</a></li>
       <li><a href="#projects">Projets</a></li>
@@ -27,33 +27,13 @@
         </a>
       </li>
     </ul>
-
-    <!-- Dark / Light toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="theme-toggle__icon">
-        <circle cx="16" cy="16" r="9.34"/>
-        <g stroke="currentColor" stroke-width="1.5">
-          <path d="M16 5.5v-4"/>
-          <path d="M16 30.5v-4"/>
-          <path d="M1.5 16h4"/>
-          <path d="M26.5 16h4"/>
-          <path d="m23.4 8.6 2.8-2.8"/>
-          <path d="m5.7 26.3 2.9-2.9"/>
-          <path d="m5.8 5.8 2.8 2.8"/>
-          <path d="m23.4 23.4 2.9 2.9"/>
-        </g>
-      </svg>
-    </button>
   </nav>
 </header>
 
 <main class="container">
-
 <section id="about" class="section card">
   <h2>FLORIAN ROYER</h2>
-  <p>
-    Candidat pour la Coding Factory de Cergy-Pontoise
-  </p>
+  <p>Candidat pour la Coding Factory de Cergy-Pontoise</p>
 </section>
 
 <section id="projects" class="section">
@@ -102,23 +82,28 @@
 <section id="contact" class="section">
   <h2>Contact</h2>
   <div class="card">
-    <p>
-      Email :
-      <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a>
-    </p>
+    <p>Email : <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a></p>
   </div>
 </section>
-
 </main>
 
-<!-- Floating Liquid Glass Menu -->
+<!-- Menu flottant liquid glass -->
 <div class="floating-menu">
-  <a href="mailto:florian.idpro@icloud.com" aria-label="Email">✉️</a>
-  <a href="https://github.com/Ouara01" target="_blank" aria-label="GitHub">🐙</a>
-  <a href="assets/CV_Florian_Royer.pdf" target="_blank" aria-label="CV">📄</a>
+  <a href="https://github.com/Ouara01" target="_blank" aria-label="GitHub">
+    <img src="assets/github-mark-white.svg" alt="GitHub" class="menu-icon">
+  </a>
+  <a href="mailto:florian.idpro@icloud.com" aria-label="Email">
+    <img src="assets/mail-icon.svg" alt="Email" class="menu-icon">
+  </a>
+  <a href="assets/CV_Florian_Royer.pdf" target="_blank" aria-label="CV">
+    <img src="assets/cv-icon.svg" alt="CV" class="menu-icon">
+  </a>
 </div>
 
-<footer class="footer">
+<!-- Dark/Light toggle -->
+<button class="theme-toggle floating-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+
+<footer class="footer container">
   © 2025 Florian Royer — Tous droits réservés
 </footer>
 
