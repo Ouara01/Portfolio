@@ -1,91 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florian ROYER - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florian Royer — Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <nav id="navbar"> 
-            <ul>
-                <li><a href="#about">Profil</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="header">
+  <nav class="nav container">
+    <ul class="nav-links">
+      <li><a href="#about">Profil</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="https://github.com/Ouara01" target="_blank" aria-label="GitHub">
+          <img src="assets/github-mark-white.svg" alt="GitHub" class="github-icon">
+        </a>
+      </li>
+    </ul>
 
-    <main>
-        <div class="about" id="about">
-            <h2>Bienvenue sur mon Portfolio</h2>
-            <p>Je suis Florian ROYER, Développeur passionné par le numérique, créant des projets modernes et intuitifs, avec un fort intérêt pour le web, le développement de jeux vidéo et les technologies modernes telles que React, TypeScript et Next.js.</p>
-        </div>
+    <!-- Dark / Light toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="theme-toggle__classic">
+        <clipPath id="cutout">
+          <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z"/>
+        </clipPath>
+        <g clip-path="url(#cutout)">
+          <circle cx="16" cy="16" r="9.34"/>
+          <g stroke="currentColor" stroke-width="1.5">
+            <path d="M16 5.5v-4"/>
+            <path d="M16 30.5v-4"/>
+            <path d="M1.5 16h4"/>
+            <path d="M26.5 16h4"/>
+            <path d="m23.4 8.6 2.8-2.8"/>
+            <path d="m5.7 26.3 2.9-2.9"/>
+            <path d="m5.8 5.8 2.8 2.8"/>
+            <path d="m23.4 23.4 2.9 2.9"/>
+          </g>
+        </g>
+      </svg>
+    </button>
+  </nav>
+</header>
 
-        <div class="project" id="project">
-            <h2>Mes Projets</h2>
-            <ul class="project-list">
-                <li class="project-card">
-                    <h3>Shiori-Sama - Plateforme de Streaming d'Anime</h3>
-                    <p>Site web fullstack, utilisant Next.js 16, React 19, TypeScript et Zustand.</p>
-                    <p>Fonctionnalités : récupération d'animes via AniList GraphQL, gestion d'état avec Zustand, interface moderne et responsive. Projet en cours de développement.</p>
-                    <span>Statut : En cours<span/>
-                </li>
-                <li class="project-card">
-                    <h3>Tetoris</h3>
-                    <p>Copie de Tetris utilisant les voix de différents Vocaloid pour chaque couleur.</p>
-                    <span>Statut : À venir<span/>
-                </li>
-                <li class="project-card">
-                    <h3>Jeu du Morpion</h3>
-                    <p>Jeu classique du morpion avec une interface simple et intuitive.</p>
-                    <span>Statut : À venir<span/>
-                </li>
-            </ul>
-        </div>
+<main class="container">
 
-        <div class="skills" id="skills">
-            <h2>Compétences techniques</h2>
-            <ul class="skills-list">
-                <li class="skills-card">
-                    <h3>Développement Web</h3>
-                    <p>Création de sites web responsives et interactifs.</p>
-                </li>
-                <li class="skills-card">
-                    <h3>Langages maîtrisés</h3>
-                    <p>HTML5 | CSS3 | JavaScript | TypeScript</p>
-                </li>
-                <li class="skills-card">
-                    <h3>Frameworks / Bibliothèques</h3>
-                    <p>React, Next.js, Zustand</p>
-                </li>
-                <li class="skills-card">
-                    <h3>Développement de jeux vidéo</h3>
-                    <p>Conception et développement de jeux captivants.</p>
-                </li>
-            </ul>
-        </div>
+<section id="about" class="section card">
+  <h2>FLORIAN ROYER</h2>
+  <p>
+    Candidat pour la Coding Factory de Cergy-Pontoise
+  </p>
+</section>
 
-        <div class="contact" id="contact">
-            <h2>Contactez-moi</h2>
-            <ul class="contact-list">
-                <li class="contact-card">
-                    <h3>Email</h3>
-                    <p>Vous pouvez me contacter à : <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a></p>
-                </li>
-            </ul>
-        </div>
-    </main>
+<section id="projects" class="section">
+  <h2>Mes projets</h2>
+  <ul class="grid">
+    <li class="card">
+      <h3>Shiori-Sama</h3>
+      <p>Site de streaming personnel d'anime et manga, utilisant Next.js, React, TypeScript, Tailwindcss, Zustand et gestion d'API.</p>
+      <p>Fonctionnalités : récupération d'anime et manga via l'API AniList GraphQL, gestion d'état avec Zustand, interface moderne et responsive.</p>
+      <span>Progression : En cours</span>
+    </li>
+    <li class="card">
+      <h3>Tetoris</h3>
+      <p>Copie de Tetris utilisant les voix de différents Vocaloid pour chaque couleur.</p>
+      <span>Progression : À venir</span>
+    </li>
+    <li class="card">
+      <h3>Jeu du Morpion</h3>
+      <p>Jeu classique du morpion avec une interface simple et intuitive.</p>
+      <span>Progression : À venir</span>
+    </li>
+  </ul>
+</section>
 
-    <footer>
-        <p id="copyright"><strong>&copy; 2025 Florian ROYER<strong/><br>Tous droits réservés.</p>
-    </footer>
-    <script src="script.js"></script>
+<section id="skills" class="section">
+  <h2>Compétences</h2>
+  <ul class="grid">
+    <li class="card">
+      <h3>Langages</h3>
+      <p>HTML / CSS / JavaScript / TypeScript / Python</p>
+      <span>Progression : En cours</span>
+    </li>
+    <li class="card">
+      <h3>Frontend</h3>
+      <p>React / Next.js / Tailwind CSS</p>
+      <span>Progression : En cours</span>
+    </li>
+    <li class="card">
+      <h3>Backend</h3>
+      <p>Node.js / Zustand</p>
+      <span>Progression : En cours</span>
+    </li>
+  </ul>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>
+      Email :
+      <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  © 2025 Florian Royer — Tous droits réservés
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
