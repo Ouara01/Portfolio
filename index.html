@@ -14,12 +14,21 @@
 </head>
 
 <body>
+
+  <!-- Snow Background ( 3 LAYERS ) -->
+<div id="snow-background">
+<div class="layer layer-far"></div>
+<div class="layer layer-mid"></div>
+<div class="layer layer-near"></div>
+</div>
+
+<!-- Header -->
 <header class="header">
   <nav class="nav container">
     <ul class="nav-links">
       <li><a href="#about">Profil</a></li>
-      <li><a href="#projects">Projets</a></li>
       <li><a href="#skills">Compétences</a></li>
+      <li><a href="#projects">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -29,10 +38,10 @@
 
 <section id="about" class="section card">
   <h2>FLORIAN ROYER</h2>
-  <p>Candidat pour la Coding Factory de Cergy-Pontoise</p>
+  <p class="presentation">Candidat pour la Coding Factory de Cergy-Pontoise</p>
 </section>
 
-<section id="projects" class="section">
+<section id="projects" class="projects">
   <h2>Mes projets</h2>
   <ul class="grid">
     <li class="card">
@@ -54,7 +63,7 @@
   </ul>
 </section>
 
-<section id="skills" class="section">
+<section id="skills" class="skills">
   <h2>Compétences</h2>
   <ul class="grid">
     <li class="card">
@@ -75,7 +84,7 @@
   </ul>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="contact">
   <h2>Contact</h2>
   <div class="card">
     <p>Email : <a href="mailto:florian.idpro@icloud.com">florian.idpro@icloud.com</a></p>
@@ -100,8 +109,9 @@
   <a href="assets/CV_Florian_Royer.pdf" target="_blank" aria-label="CV">
     <img src="assets/CvSquare.svg" alt="CV" class="icon">
   </a>
-  <a href="monlinkedin" target="_blank" aria-label="LinkedIn">
+  <a href="https://www.linkedin.com/in/florian-royer" target="_blank" aria-label="LinkedIn">
     <img src="assets/linkedin-svgrepo-com.svg" alt="LinkedIn" class="icon">
+  </a>
 </div>
 
 <!-- Dark / Light Toggle -->

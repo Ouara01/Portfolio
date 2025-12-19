@@ -1,35 +1,103 @@
+/* ======================================================
+   DESIGN SYSTEM — COLORS & EFFECTS
+   Direction de la lumière : haut-gauche (↘︎)
+   Philosophie :
+   - 3 niveaux de surfaces
+   - contrastes doux mais lisibles
+   - cohérence light / dark
+====================================================== */
+
 /* =========================
-   VARIABLES
+   LIGHT MODE (default)
 ========================= */
 :root {
-  --bg: #f4f5f7;
-  --surface: #ffffff;
+
+  /* ---------- BACKGROUNDS ---------- */
+  --bg: #f3f4f6;               /* Background global */
+  --surface: #eef0f3;          /* Sections / containers */
+  --surface-soft: #f7f8fa;     /* Surfaces secondaires */
+  --card: #ffffff;              /* Cards / éléments élevés */
+
+  /* ---------- TEXT ---------- */
   --text: #111827;
   --muted: #6b7280;
-  --accent: #2563eb;
 
+  /* ---------- ACCENTS ---------- */
+  --accent: #2563eb;           /* Liens, hover, focus */
+  --accent-soft: #7aa2ff;      /* Décoratif */
+
+  /* ---------- BORDERS ---------- */
+  --border-subtle: rgba(0,0,0,0.08);
+  --border-card: rgba(0,0,0,0.06);
+
+  /* ---------- RADIUS ---------- */
   --radius: 20px;
 
-  /* Border Shadow (Neumorphism style) */
-  --shadow-inset: inset 6px 6px 24px rgba(0,0,0,0.1), inset -6px -6px 16px rgba(255,255,255,0.7);
-
-  /* Large shadows (Depth style) */
+  /* ---------- SHADOWS (depth) ---------- */
   --shadow-sm: 0 10px 30px rgba(0,0,0,0.08);
   --shadow-lg: 0 30px 80px rgba(0,0,0,0.18);
+  --shadow-card: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 20px 50px rgba(0,0,0,0.16);
 
-  /* Glassmorphism effect */
-  --glass-bg: rgba(255,255,255,0.6);
-  --glass-blur: blur(4px);
-  --liquid-border: 1px solid rgba(255,255,255,0.3);
+  /* ---------- NEUMORPHISM ---------- */
+  --neu-light: rgba(255, 255, 255, 0.7);
+  --neu-dark: rgba(0, 0, 0, 0.15);
+
+  /* ---------- GLASSMORPHISM ---------- */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-blur: blur(6px);
+  --liquid-border: 1px solid rgba(255,255,255,0.4);
+
+  /* ---------- SNOW (light mode) ---------- */
+  --snow-color: 100, 110, 130;
+  --snow-opacity-near: 0.25;
+  --snow-opacity-mid: 0.18;
+  --snow-opacity-far: 0.12;
 }
 
-.dark {
+/* =========================
+   DARK MODE
+========================= */
+:root[data-theme="dark"] {
+
+  /* ---------- BACKGROUNDS ---------- */
   --bg: #0b1020;
-  --surface: #141a33;
+  --surface: #121a33;
+  --surface-soft: #0f162d;
+  --card: #161f3d;
+
+  /* ---------- TEXT ---------- */
   --text: #e5e7eb;
   --muted: #9ca3af;
-  --accent: #2563eb;
+
+  /* ---------- ACCENTS ---------- */
+  --accent: #4f8cff;
+  --accent-soft: #8fb0ff;
+
+  /* ---------- BORDERS ---------- */
+  --border-subtle: rgba(255,255,255,0.08);
+  --border-card: rgba(255,255,255,0.06);
+
+  /* ---------- NEUMORPHISM ---------- */
+  --neu-light: rgba(255, 255, 255, 0.04);
+  --neu-dark: rgba(0,0,0,0.6);
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-sm: 0 10px 30px rgba(0,0,0,0.6);
+  --shadow-lg: 0 30px 80px rgba(0,0,0,0.8);
+  --shadow-card: 0 10px 40px rgba(0,0,0,0.6);
+  --shadow-card-hover: 0 30px 80px rgba(0,0,0,0.8);
+
+  /* ---------- GLASSMORPHISM ---------- */
   --glass-bg: rgba(26,35,50,0.4);
+  --glass-blur: blur(10px);
+  --liquid-border: 1px solid rgba(255,255,255,0.12);
+
+  /* ---------- SNOW ---------- */
+  --snow-color: 255, 255, 255;
+  --snow-opacity-near: 0.35;
+  --snow-opacity-mid: 0.25;
+  --snow-opacity-far: 0.18;
 }
 
 /* =========================
@@ -61,11 +129,28 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 span {
   font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.presentation {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* =========================
@@ -87,17 +172,12 @@ span {
 .header {
   position: sticky;
   top: 0;
-  background: var(--bg), var(--glass-bg);
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   box-shadow: var(--shadow-sm);
   z-index: 10;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-  
+  margin: 0 2rem;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .nav {
@@ -128,17 +208,22 @@ span {
    CARDS
 ========================= */
 .card {
-  background: var(--surface), var(--glass-bg);
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
-  padding: 2rem;
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm), var(--shadow-inset);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  padding: 1.5rem;
+  border: 1px solid var(--border-card);
+  box-shadow:
+    -4px -4px 12px var(--neu-light),
+     6px  6px 18px var(--neu-dark),
+     var(--shadow-card);
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease,
+              background 0.35s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* =========================
@@ -156,6 +241,7 @@ span {
 .footer {
   text-align: center;
   padding: 2rem;
+  margin-top: 8rem;
   color: var(--muted);
 }
 
@@ -164,18 +250,16 @@ span {
 ========================= */
 .floating-menu {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 1.5rem;
-  background: var(--glass-bg), ;
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
+  border: var(--liquid-border);
   padding: 0.75rem 1.5rem;
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
   z-index: 20;
 }
@@ -200,7 +284,7 @@ span {
 ========================= */
 .theme-toggle {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   right: 1rem;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -209,7 +293,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 20;
+  z-index: 40;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius);
   cursor: pointer;
@@ -226,9 +310,47 @@ span {
 }
 
 /* =========================
+   SNOW BACKGROUND
+========================= */
+#snow-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -9999;
+  overflow: hidden;
+}
+
+.layer { position: absolute; width: 100%; height: 100%; }
+
+.layer .snow-flake {
+  position: absolute;
+  top: -2vh;
+  font-size: 1rem;
+  color: rgba(var(--snow-color), var(--snow-opacity-near));
+  user-select: none;
+  pointer-events: none;
+  white-space: pre;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.layer-far .snow-flake { font-size: 0.6rem; animation-duration: 20s; }
+.layer-mid .snow-flake { font-size: 0.9rem; animation-duration: 15s; }
+.layer-near .snow-flake { font-size: 1.2rem; animation-duration: 10s; }
+
+@keyframes fall {
+  0%   { transform: translate(0, -10vh); }
+  100% { transform: translate(var(--drift, 20px), 110vh); }
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .container {
     padding: 1.5rem 1rem;
   }
